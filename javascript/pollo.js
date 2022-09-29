@@ -9,6 +9,10 @@ class Pollo {
     this.h = 35; // alto del pollo
     this.speed = 1.5;
     this.jumpSpeed = 40;
+
+
+    // BONUS
+    this.isJumping = false;
   }
 
   // metodos o acciones del pollo
@@ -18,7 +22,16 @@ class Pollo {
 
   // pollo caiga. gravedad del pollo.
   gravedadPollo = () => {
-    this.y = this.y + this.speed;
+    // this.y = this.y + this.speed;
+
+    if (this.isJumping === true) {
+      if (this.y > 0) {
+        // evita que suba fuera del canvas
+        this.y = this.y - this.speed
+      }
+    } else {
+      this.y = this.y + this.speed;
+    }
   };
 
   // salto del pollo
